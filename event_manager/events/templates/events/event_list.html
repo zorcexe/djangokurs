@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Übersicht der Ereignisse
+{% endblock %}
+
+
+{% block head %}
+<h1>Übersicht der Ereignisse</h1>
+{% endblock %}
+
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<a class="btn btn-primary" href="{% url 'events:event_create' %}">
+    neues Event anlegen
+</a><br>
+{% endif %}
+
+<ul class="list-group event_box">
+    {% for event in object_list %}
+    {% include "snippets/event_box.html" with object=event %}
+    {% comment %} 
+    <a href="{% url 'events:event_detail' event.pk %}">
+    <li class="list-group-item rounded">
+
+    <small><span>am {{event.date}}</span></small><br>
+    <b>{{event.name}}</b>
+        <span class="badge rounded-pill bg-primary">{{event.category}}</span>
+        <p>by {{event.author}}</p>
+    </li>
+    </a> 
+    {% endcomment %}
+    {% endfor %}
+</ul>
+
+{% include "snippets/paginator.html" %}
+
+{% endblock %}

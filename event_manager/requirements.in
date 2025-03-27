@@ -1,0 +1,6 @@
+# Lose Angabe von Abhängigkeiten
+Django==5.1.7
+django-crispy-forms
+crispy-bootstrap5
+whitenoise
+python-gettext

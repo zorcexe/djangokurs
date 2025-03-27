@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block header %}
+    <h1>Dashboard</h1>
+{% endblock %}
+
+{% block content %}
+    <ul class="list-group event_box">
+    {% for event in events %}
+        {% include "snippets/event_box.html" with object=event %}
+    {% endfor %}
+    </ul>
+{% endblock %}

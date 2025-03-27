@@ -1,0 +1,9 @@
+<a href="{% url 'events:event_detail' object.pk %}">
+    <li class="list-group-item rounded">
+
+    <small><span>am {{object.date}}</span></small><br>
+    <b>{{object.name}}</b>
+        <span class="badge rounded-pill bg-primary">{{object.category}}</span>
+        <p>by {{object.author}}</p>
+    </li>
+</a>

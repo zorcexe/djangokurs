@@ -1,0 +1,5 @@
+-c requirements.txt
+
+factory-boy
+django-debug-toolbar
+django-extensions

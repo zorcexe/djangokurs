@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+
+{% block title %}
+{% trans "Übersicht der Kategorien" %}
+{% endblock %}
+
+
+{% block head %}
+<h1>{% trans "Übersicht der Kategorien" %}</h1>
+{% endblock %}
+
+
+{% block content %}
+<p>
+<a href="{% url 'events:category_create' %}">Neue Kategorie hinzufügen</a>
+</p>
+
+{% blocktrans with variable=42 %}
+Beispiel für blocktrans. Mit {{ variable }} drin.
+{% endblocktrans %}
+
+<ul>
+    {% for category in categories %}
+        <li>
+            <a href="{% url 'events:category_detail' category.pk %}">
+                {{category}}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

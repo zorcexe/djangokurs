@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    {% if object %}
+        {% trans "Event editieren" %}
+    {% else %}
+        {% trans "Neuen Event anlegen" %}
+    {% endif %}
+{% endblock %}
+
+{% block head %}
+    {% if object %}
+        <h1>{% trans "Event editieren" %}</h1>
+    {% else %}
+        <h1>{% trans "Neuen Event anlegen" %}</h1>
+{% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <!-- left column 6 Spalten lang bei großen Screens, 12 bei kleinen -->
+        <div class="col-lg-6 col-sm-12">
+            <form method="POST">
+            {% csrf_token %}  <!-- generiert hidden feld mit token -->
+            <!-- siehe crispy forms docs -->
+            {{form|crispy}}
+            <input class="btn btn-primary" type="submit" value="Absenden" />
+            <a class="btn btn-info" href="{% url 'events:event_list' %}">Zurück zur Übersicht</a>
+            </form>
+        </div>
+    </div> <!-- end row -->
+</div> <!-- end container -->
+
+
+{% endblock %}
