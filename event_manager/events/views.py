@@ -127,8 +127,8 @@ def category_update(request, pk):
     )
 
 
-@user_passes_test(group_check)
-@user_passes_test(dummy_check)
+# @user_passes_test(group_check)
+# @user_passes_test(dummy_check)
 def category_create(request):
     """Funktion zum Anlegen einer Kategorie."""
     if request.method == "POST":

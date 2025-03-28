@@ -4,3 +4,6 @@ django-crispy-forms
 crispy-bootstrap5
 whitenoise
 python-gettext
+djangorestframework 
+drf-spectacular-sidecar
+drf-spectacular
